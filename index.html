@@ -56,7 +56,8 @@ var ooo ;				player.load( JSON.parse( text ) );
 
 					} );*/
                                
-skeleton.visible = true;				mixer = new THREE.AnimationMixer( text.scene );
+                               text.skeleton.visible = true;				
+			       mixer = new THREE.AnimationMixer( text.scene );
 					var action = mixer.clipAction( text.animations[0] );
                         action.play();
 			} );

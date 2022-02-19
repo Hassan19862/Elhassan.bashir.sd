@@ -47,11 +47,13 @@ var ooo ;				player.load( JSON.parse( text ) );
 				} );
 
  
-                    tex1 = text.animations;
+                               tex1 = text.animations;
 	
-text.traverse( function ( child ) {
+                               text.traverse( function ( child ) {
 
-						if ( child.isSkinnedMesh ) child.castShadow = true;
+						//if ( child.isSkinnedMesh ) child.castShadow = true;
+				       child.visible = false;
+	
 
 					} );
 skeleton.visible = true;				mixer = new THREE.AnimationMixer( text.scene );

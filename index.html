@@ -20,9 +20,9 @@
 	<body ontouchstart="">
 		<script type="module">
 
-			import * as THREE     from './js/three.module.js';
-			import * as APP       from './js/app.js';
-			import * as VRButton  from './js/VRButton.js';
+			import * as THREE from './js/three.module.js';
+			import { APP } from './js/app.js';
+			import { VRButton } from './js/VRButton.js';
  
 			window.THREE = THREE; // Used by APP Scripts.
 			window.VRButton = VRButton; // Used by APP Scripts.
@@ -48,13 +48,13 @@ var ooo ;				player.load( JSON.parse( text ) );
 
  
                                tex1 = text.animations;
-	                      text.scene.traverse( function ( child ) {
+	                    /* text.scene.traverse( function ( child ) {
 
 						//if ( child.isSkinnedMesh ) child.castShadow = true;
 				       child.visible = false;
 	
 
-					} );
+					} );*/
                                
 skeleton.visible = true;				mixer = new THREE.AnimationMixer( text.scene );
 					var action = mixer.clipAction( text.animations[0] );

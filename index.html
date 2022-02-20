@@ -23,18 +23,15 @@
 			import * as THREE from './js/three.module.js';
 			import { APP } from './js/app.js';
 			import { VRButton } from './js/VRButton.js';
- 
+
 			window.THREE = THREE; // Used by APP Scripts.
 			window.VRButton = VRButton; // Used by APP Scripts.
-            let mixer;
-            var tex1;
+
 			var loader = new THREE.FileLoader();
 			loader.load( 'app.json', function ( text ) {
-                
-               
-                 THREE.Cache.enabled = true;
+
 				var player = new APP.Player();
-var ooo ;				player.load( JSON.parse( text ) );
+				player.load( JSON.parse( text ) );
 				player.setSize( window.innerWidth, window.innerHeight );
 				player.play();
 
@@ -46,14 +43,6 @@ var ooo ;				player.load( JSON.parse( text ) );
 
 				} );
 
- 
-                               tex1 = text.animations;
-	                  
-                               
-                               //text.skeleton.visible = true;				
-			       mixer = new THREE.AnimationMixer( text.scene );
-					var action = mixer.clipAction( text.animations[0] );
-                        action.play();
 			} );
 
 			var button = document.createElement( 'a' );

@@ -163,7 +163,7 @@ var APP = {
 
 			requestAnimationFrame( animate );
                        if ( mixer ) mixer.update( clock.getDelta() );
-                         animations
+                         console.log(clock.getDelta());
 				
 				
 			

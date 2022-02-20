@@ -7,7 +7,7 @@ var APP = {
 		renderer.outputEncoding = THREE.sRGBEncoding;
 
 		var loader = new THREE.ObjectLoader();
-		var camera, scene ,mixer;
+		var camera, scene;
 
 		var vrButton = VRButton.createButton( renderer ); // eslint-disable-line no-undef
 
@@ -154,10 +154,6 @@ var APP = {
 		var time, startTime, prevTime;
 
 		function animate() {
-requestAnimationFrame( animate );
-
-if ( mixer ) mixer.update( clock.getDelta() );
-
 
 			time = performance.now();
 

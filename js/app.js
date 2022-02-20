@@ -8,7 +8,9 @@ var APP = {
 
 		var loader = new THREE.ObjectLoader();
 		var camera, scene;
-
+  
+		let mixer, clock;
+		
 		var vrButton = VRButton.createButton( renderer ); // eslint-disable-line no-undef
 
 		var events = {};
@@ -22,6 +24,7 @@ var APP = {
 		this.height = 500;
 
 		this.load = function ( json ) {
+			clock = new THREE.Clock();
 
 			var project = json.project;
 
@@ -34,6 +37,9 @@ var APP = {
 
 			this.setScene( loader.parse( json.scene ) );
 			this.setCamera( loader.parse( json.camera ) );
+                         
+			mixer = new THREE.AnimationMixer( json.scene );
+		        mixer.clipAction( json.animations[ 0 ] ).play();
 
 			events = {
 				init: [],
@@ -155,6 +161,13 @@ var APP = {
 
 		function animate() {
 
+			requestAnimationFrame( animate );
+                       if ( mixer ) mixer.update( clock.getDelta() );
+
+				
+				
+			
+			
 			time = performance.now();
 
 			try {
